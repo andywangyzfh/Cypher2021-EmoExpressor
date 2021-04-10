@@ -1,4 +1,5 @@
 import tkinter as tk
+import re
 from PIL import ImageTk, Image
 import numpy as np
 import argparse
@@ -78,30 +79,61 @@ def detector():
     cap.release()
     cv2.destroyAllWindows()
 
-def gui():
+_nonbmp = re.compile(r'[\U00010000-\U0010FFFF]')
+def _surrogatepair(match):#convert emoji to unicode chars that compiler recognizes
+    char = match.group()
+    assert ord(char) > 0xffff
+    encoded = char.encode('utf-16-le')
+    return (
+        chr(int.from_bytes(encoded[:2], 'little')) + 
+        chr(int.from_bytes(encoded[2:], 'little')))
+def with_surrogates(text):
+    return _nonbmp.sub(_surrogatepair, text)
+
+ 
+
+class MainFrame(tk.Frame):
+    def __init__(self,master):
+        self.master = master
+        self.frame = tk.Frame(self.master)
+        self.frame.pack()
+        master.title("EmoExpressor")
+        master.geometry("700x500+300+150")
+        master.resizable(width=True, height=True)
+        # Logo
+        img = Image.open("logo.png")
+        img = img.resize((350, 250), Image.ANTIALIAS)
+        img = ImageTk.PhotoImage(img)
+        self.panel = tk.Label(master, image = img)
+        self.panel.pack(side = "top", fill = "both", expand = 0)
+        # Feedback
+        self.message = tk.Label(master, text="You looks {0} do you want to try these?".format(emotion), width=200, font=("Arial", 25), anchor="w", height = 2)
+        self.message.pack()
+        # Emoji
+        self.T = tk.Text(master, height=7, width=100)
+        self.T.pack()
+        self.displayemote = tk.Label(master, text ='Your emote', font = "50") 
+        self.displayemote.pack()
+        #w.config(text= with_surrogates('😐'))
+
+    def display_emote(self):
+        #update the emtion based on emote returned from detector
+        if emotion == 'Angry':
+            self.displayemote.config(text= with_surrogates('😡'))
+        elif emotion == 'Happy':
+            self.displayemote.config(text= with_surrogates('😁'))
+        elif emotion == 'Neutral':
+            self.displayemote.config(text= with_surrogates('😐'))
+        elif emotion == 'Sad':
+            self.displayemote.config(text= with_surrogates('😢'))
+        elif emotion == 'Surprise':
+            self.displayemote.config(text= with_surrogates('😲'))
+        self.master.after(1000, self.display_emote)
+def gui(): 
     # create gui
-    # Main window
     root = tk.Tk()
-    root.title("EmoExpressor")
-    root.geometry("700x500+300+150")
-    root.resizable(width=True, height=True)
-
-    # Logo
-    img = Image.open("logo.png")
-    img = img.resize((350, 250), Image.ANTIALIAS)
-    img = ImageTk.PhotoImage(img)
-    panel = tk.Label(root, image = img)
-    panel.pack(side = "top", fill = "both", expand = 0)
-
-    # Feedback
-    message = tk.Label(root, text="You looks {0} do you want to try these?".format(emotion), width=200, font=("Arial", 25), anchor="w", height = 2)
-    message.pack()
-
-    # Emoji
-    T = tk.Text(root, height=7, width=100)
-    T.pack()
-    T.insert(tk.END, 'Your emoji goes here...')
-
+    app = MainFrame(root)
+    root.after(1000, app.display_emote())
     root.mainloop()
 
 def main():
