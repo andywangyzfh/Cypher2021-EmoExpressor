@@ -120,15 +120,21 @@ class MainFrame(tk.Frame):
         #update the emtion based on emote returned from detector
         if emotion == 'Angry':
             self.displayemote.config(text= with_surrogates('😡'))
+            self.T.config(text="ಠ_ಠ\t⋋_⋌\t(｀Д´)\t(▽д▽)\t-`д´-\n")
         elif emotion == 'Happy':
             self.displayemote.config(text= with_surrogates('😁'))
+            self.T.config(text="(•‿•)\t(≧▽≦)\t⊙▽⊙\t｡^‿^｡\t\^o^/\n")
         elif emotion == 'Neutral':
             self.displayemote.config(text= with_surrogates('😐'))
+            self.T.config(text="(•‿•)\t(--_--)\t(￣ヘ￣)\t( -_・)\t(^_-)\n")
         elif emotion == 'Sad':
             self.displayemote.config(text= with_surrogates('😢'))
+            self.T.config(text="(｡•́︿•̀｡)\t(｡╯︵╰｡)\t(╯_╰)\t(T_T)\t(>_<)\n")
         elif emotion == 'Surprise':
             self.displayemote.config(text= with_surrogates('😲'))
+            self.T.config(text="(⊙_⊙)\t(O.O)\t(°ロ°) !\t(・□・;)\t(・о・)\n")
         self.master.after(1000, self.display_emote)
+
 def gui(): 
     # create gui
     root = tk.Tk()
