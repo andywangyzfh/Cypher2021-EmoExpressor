@@ -8,7 +8,7 @@ label = 'Angry'
 w = Label(root, text ='Your emote', font = "50") 
 w.pack()
 _nonbmp = re.compile(r'[\U00010000-\U0010FFFF]')
-def _surrogatepair(match):
+def _surrogatepair(match):#convert emoji to unicode chars that compiler recognizes
     char = match.group()
     assert ord(char) > 0xffff
     encoded = char.encode('utf-16-le')
@@ -34,29 +34,3 @@ def display_emote():
 root.after(1000, display_emote)
 root.mainloop()
 
-=======
-from tkinter import * 
-from tkinter.ttk import *
-root = Tk()
-root.title("EmoExpresser")
-label = 'Angry'
-w = Label(root, text ='Your emote', font = "50") 
-w.pack()
-def display_emote():
-    label = label #update the label based on emote returned from detector
-    if label == 'Angry':
-        w.config(text="Angry")
-    elif label == 'Happy':
-        w.config(text="Happy")
-    elif label == 'Neutral':
-        w.config(text="Neutral")
-    elif label == 'Sad':
-        w.config(text="Sad")
-    elif label == 'Surprise':
-        w.config(text="Surprise")
-    root.after(1000, display_emote)    
-
-root.after(1000, display_emote)
-root.mainloop()
-
->>>>>>> 2045d8f6012058e931f488961e9ca0932cbf6dd2
