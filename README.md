@@ -11,8 +11,8 @@ An emoji recommender based on real-time emotion detection.
 - College students face a lot of pressure. So why not have some fun with an AI?  
 
 ### How we build it
-- Use OpenCV to analyze the real-time video
-- Use Tensorflow and Keras to train and test the emotion recognition models
+- Use OpenCV to analyze the real-time video captured from the front camera
+- Use Tensorflow and Keras to build the emotion recognition models
 - Implement the web-based front end via Flask
 
 ### Challenges we face  
@@ -20,6 +20,9 @@ An emoji recommender based on real-time emotion detection.
 - We are also new to front-end developing. We spent lots of time making the UI responds to the outputs of the deep learning model.  
 
 ### Accomplishments that we're proud of
+- Achieved a working emotion detection function
+- Produced a nice web UI with no prior experience
+- Learned lots of new techniques within days
 
 ### What we learned?  
 - Implementation of CNN in python (not the whole theory, but how to use it)  
@@ -29,5 +32,13 @@ An emoji recommender based on real-time emotion detection.
 - Project management for team work
 
 ### What's next for EmoExpressor
+- A better user interface and a desktop client
+- More available emotions and better emotion recognition precision
+- Better user experience design, e.g., click to copy, camera switch, etc.
 
-**Requirement:** Python3, OpenCV3, Keras, Tensorflow
+### Reference
+- Thanks to [atulapra](https://github.com/atulapra/Emotion-detection) for his models
+- Data set used in this project: [FER-2013](https://www.kaggle.com/deadskull7/fer2013)
+
+
+**Requirement:** Python3, OpenCV, Keras, Tensorflow, Flask
