@@ -4,26 +4,40 @@
     <meta charset="UTF-8">
     <title>EmoExpressor</title>
     <style type="text/css">
-        #intro{
-            position: relative;
-            left:8%;
-            top: 30px;
-            font-size: 19px;
-            color: blue;
+        .header{
+            color: red;
+            font-size: 50px;
         }
         .return{
-            font-size:20px;
-            color:blue;
+            font-size:40px;
+            color:black;
             position: absolute;
-            left:20%;
+            left:45%;
             top:62%;
+        }
+        .return:hover{
+            color:red;
+            text-decoration: none;
+        }
+        #intro{
+            color:blue;
+            position: fixed;
+            top:10%;
+            left:3%;
+            font-size: 50px;
+        }
+        #intro1{
+            position: fixed;
+            top:25%;
+            left:15%;
         }
     </style>
 </head>
-<body>
-    <div class="intro">
-        <p id="intro">You look {{ var1  }}</p>
-        <p id="intro">{{ var2  }}</p>
-    </div>
-    <a class = 'return' href="">return</a>
+<body  style="background-color: antiquewhite;"
+    <p align="center" class="header">EmoExpressor</h1>
+        <div class="intro">
+            <p id="intro">You look {{ var1  }}, consider using the following emojis for your chat!</p>
+            <p id="intro1">{{ var2  }}</p>
+        </div>
+        <a class = 'return' href="">return</a>
 </body>
