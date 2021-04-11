@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>EmoExpressor</title>
     <style>
-      .img-container {
-        text-align: center;
-      }
+        .img-container {
+            text-align: center;
+        }
+        #button { /* 按钮美化 */
+            width: 270px; /* 宽度 */
+            height: 40px; /* 高度 */
+            border-width: 0px; /* 边框宽度 */
+            border-radius: 3px; /* 边框半径 */
+            background: #1E90FF; /* 背景颜色 */
+            cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+            outline: none; /* 不显示轮廓线 */
+            font-family: Microsoft YaHei; /* 设置字体 */
+            color: white; /* 字体颜色 */
+            font-size: 17px; /* 字体大小 */
+        }
+        #button:hover { /* 鼠标移入按钮范围时改变颜色 */
+            background: black;
+        }
     </style>
 </head>
-<body>
-<h1 align="center">EmoExpressor</h1>
-<div class="img-container"> 
-  <img src="logo.png">
-</div>
-<h3 align="center">When you are ready, click the button below!</h3>
-<p align="center">EmoExpressor is an emoji recommender based on your real-time facial emotion. After you click the bottom below, your front camera will be used to detect your emotion, and it will automatically give you emoji recommendations based on your current mood!</p>
-<div align="center" style="margin-top: 40px;">
-    <form name="form1"  method="POST">
-        <!-- A=<input type="text" placeholder="该函数的幅度" name="attitude" value="{{ var1  }}"> -->
-        <!-- f=<input type="text" placeholder="该函数的频率" name="frequency" value="{{ var2  }}">
-        x最小值=<input type="text" placeholder="x轴的最小值" name="xmin" value="{{ var3  }}">
-        x最大值=<input type="text" placeholder="x轴的最大值" name="xmax" value="{{ var4  }}"> -->
-        <input type="submit" value="start" οnclick="">
-    </form>
-</div>
+
+<body style="background-color: antiquewhite;">
+    <h1 align="center" style="font-size:50px;color:red;">EmoExpressor</h1>
+    <div class="img-container">
+        <img src="{{ url_for('static', filename='logo.png')}}" height="175" width="175">
+    </div>
+    <h3 align="center" style="font-size:40px;color: blue;">When you are ready, click the button below!</h3>
+    <h4 align="center" style="font-size:30px">EmoExpressor is an emoji recommender based on your real-time facial emotion. After you click the
+        bottom below, your front camera will be used to detect your emotion, and it will automatically give you emoji
+        recommendations based on your current mood!</p>
+    <div align="center" style="margin-top: 40px;">
+        <form id="form1" method="POST">
+            <input id="button" type="submit" value="start" οnclick="">
+        </form>
+    </div>
 </body>

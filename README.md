@@ -1,4 +1,4 @@
-# Cypher 2021 - EmoExpresser
+# Cypher 2021 - EmoExpressor
 
 An emoji recommender based on real-time emotion detection.  
 
@@ -10,9 +10,14 @@ An emoji recommender based on real-time emotion detection.
 - People often don't know which emoji to choose. AI can decide it for you.  
 - College students face a lot of pressure. So why not have some fun with an AI?  
 
+### How we build it
+- Use OpenCV to 
+
 ### Challenges we face  
 - We are all new to deep learning. It took us effort to understand the logic behind emotion detection.  
 - We are also new to front-end developing. We spent lots of time making the UI responds to the outputs of the deep learning model.  
+
+### Accomplishments that we're proud of
 
 ### What we learned?  
 - Implementation of CNN in python (not the whole theory, but how to use it)  
@@ -20,5 +25,7 @@ An emoji recommender based on real-time emotion detection.
 - Developing a web-based front end for a python program with flask  
 - Develop user interface with Tkinter and curses (though they are not used in the final version)  
 - Project management for team work
+
+### What's next for EmoExpressor
 
 **Requirement:** Python3, OpenCV3, Keras, Tensorflow
