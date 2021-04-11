@@ -14,7 +14,7 @@ from threading import Thread
 from time import sleep
 import os
 from flask import Flask, render_template, request, url_for
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 @app.route('/', methods=['GET'])
 def home():
@@ -84,36 +84,6 @@ def detector():
     cap.release()
     cv2.destroyAllWindows()
     return render_template('index2.html',var1 = emotion)
-
-# def gui():
-#     # create gui
-#     # Main window
-#     root = tk.Tk()
-#     root.title("EmoExpressor")
-#     root.geometry("700x500+300+150")
-#     root.resizable(width=True, height=True)
-
-#     # Logo
-#     img = Image.open("logo.png")
-#     img = img.resize((350, 250), Image.ANTIALIAS)
-#     img = ImageTk.PhotoImage(img)
-#     panel = tk.Label(root, image = img)
-#     panel.pack(side = "top", fill = "both", expand = 0)
-
-#     # Feedback
-#     message = tk.Label(root, text="You looks {0} do you want to try these?".format(emotion), width=200, font=("Arial", 25), anchor="w", height = 2)
-#     message.pack()
-
-#     # Emoji
-#     T = tk.Text(root, height=7, width=100)
-#     T.pack()
-#     T.insert(tk.END, 'Your emoji goes here...')
-
-#     root.mainloop()
-
-def main():
-    # t2.start()
-    pass
 
 
 if __name__ == '__main__':

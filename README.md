@@ -11,7 +11,9 @@ An emoji recommender based on real-time emotion detection.
 - College students face a lot of pressure. So why not have some fun with an AI?  
 
 ### How we build it
-- Use OpenCV to 
+- Use OpenCV to analyze the real-time video
+- Use Tensorflow and Keras to train and test the emotion recognition models
+- Implement the web-based front end via Flask
 
 ### Challenges we face  
 - We are all new to deep learning. It took us effort to understand the logic behind emotion detection.  
