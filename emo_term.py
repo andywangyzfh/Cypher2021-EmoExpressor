@@ -97,7 +97,7 @@ while True:
         cv2.putText(frame, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
         # judege which expression is the most frequent in last 15 iterations
         max_freq.append(maxindex)
-        if len(max_freq) == 150:
+        if len(max_freq) == 50:
             largest = max(set(max_freq), key=max_freq.count)
             emotion = emotion_dict[largest]
             update_text(screen, emotion)
