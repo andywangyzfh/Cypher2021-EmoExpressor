@@ -40,6 +40,9 @@ model.add(Dense(7, activation='softmax'))
 emotion = "Sad"
 
 @app.route('/', methods=['POST'])
+
+   
+
 def detector():
     # emotions will be displayed on your face from the webcam feed
     model.load_weights('model.h5')
@@ -83,7 +86,22 @@ def detector():
 
     cap.release()
     cv2.destroyAllWindows()
-    return render_template('index2.html',var1 = emotion)
+    if emotion == 'Angry':
+       # "You look angry. Do you want to try these?\n"
+       emoji = "😡\tಠ_ಠ\t⋋_⋌\t(｀Д´)\t(▽д▽)\t-`д´-\n"
+    elif emotion == 'Happy':
+        # "You look happy. Do you want to try these?\n"
+       emoji = "😁\t(•‿•)\t(≧▽≦)\t⊙▽⊙\t｡^‿^｡\t\^o^/\n"
+    elif emotion == 'Neutral':
+       #"You look calm. Do you want to try these?\n"
+       emoji = "😐\n(•‿•)\t(--_--)\t(￣ヘ￣)\t( -_・)\t(^_-)\n"
+    elif emotion == 'Sad':
+       #"You look sad. Do you want to try these?\n"
+       emoji = "😢\t(｡•́︿•̀｡)\t(｡╯︵╰｡)\t(╯_╰)\t(T_T)\t(>_<)\n"
+    elif emotion == 'Surprise':
+       # "You look sad. Do you want to try these?\n"
+       emoji = "😲\t(⊙_⊙)\t(O.O)\t(°ロ°) !\t(・□・;)\t(・о・)\n"
+    return render_template('index2.html', var1 = emotion, var2 = emoji) 
 
 
 if __name__ == '__main__':

@@ -2,35 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Mood</title>
-    <style>
-        .header{
-            position: absolute;
-            top:18%;
-            left: 26%;
+    <title>EmoExpressor</title>
+    <style type="text/css">
+        #intro{
+            position: relative;
+            left:8%;
+            top: 30px;
+            font-size: 19px;
+            color: blue;
         }
         .return{
-            position:fixed;
-            top:40%;
-            left:35%;
-            text-align: center;
-            width: 450px;
-            height: 60px;
-            font-size: 35px;
-            border:1px red;
-            padding: 0px;
-            outline: none;
-            float: left;
-        }
-        .return:hover{
+            font-size:20px;
             color:blue;
-            text-decoration: none;
+            position: absolute;
+            left:20%;
+            top:62%;
         }
     </style>
 </head>
-<body style="background-color: antiquewhite;">
-    <div class = header style="font-size:70px">You look  <span style="color: red; font-size:120px;">{{ var1  }}</span>  ?</div>
-    <a class="return" href="">return</a>
+<body>
+    <div class="intro">
+        <p id="intro">You look {{ var1  }}</p>
+        <p id="intro">{{ var2  }}</p>
+    </div>
+    <a class = 'return' href="">return</a>
 </body>
-</html>
