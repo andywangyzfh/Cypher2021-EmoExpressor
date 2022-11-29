@@ -2,6 +2,8 @@
 
 An emoji recommender based on real-time emotion detection.  
 
+See demo [https://devpost.com/software/emoexpressor](here).
+
 ## What it does?  
 - Capture your face, analyze your emotion, and recommend some emoji and emoticons that suit your mood.  
 
